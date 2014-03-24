@@ -1,6 +1,8 @@
 push-parse
 ==========
 
+android:name="com.badrit.PushParse.Application"
+
 Push notification plugin using parse for Phonegap
 
 ## MIT Licence

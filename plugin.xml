@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.badrit.PushParse" version="0.1.0">
-    <name>Base64</name>
+    <name>PushParse</name>
     <description>Cordova PushParse Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,PushParse</keywords>
@@ -18,9 +18,46 @@
                 <param name="android-package" value="com.badrit.PushParse.PushParse" />
             </feature>
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
+            <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE"
+                android:protectionLevel="signature" />
+            </config-file>
 
+            <config-file target="AndroidManifest.xml" parent="/manifest/application">
+               <meta-data android:name="ParseAppKey" android:value="ZqVNdVlEV3vKsdr74NoNuk5laThTfTNRR80tNhlr" />
+               <meta-data android:name="ParseClientKey" android:value="HoE91L5tV5duGy4sHWAXybln27POfb3X4f3bExhA" />
+               <meta-data android:name="MainActivity" android:value="com.example.hello.HelloWorld" />
+               <service android:name="com.parse.PushService" />
+               <receiver android:name="com.parse.ParseBroadcastReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.intent.action.USER_PRESENT" />
+                </intent-filter>
+            </receiver>
+            <receiver android:name="com.parse.GcmBroadcastReceiver"
+                android:permission="com.google.android.c2dm.permission.SEND">
+                <intent-filter>
+                    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                    <category android:name="$PACKAGE_NAME" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <source-file src="src/android/Application.java" target-dir="src/com/badrit/PushParse/" />
         <source-file src="src/android/PushParse.java" target-dir="src/com/badrit/PushParse/" />
-
+        <source-file src="src/android/Parse-1.4.0-javadoc/" target-dir="libs/" />
+        <source-file src="src/android/Parse-1.4.0.jar" target-dir="libs/" />
+        <source-file src="src/android/android-support-v4.jar" target-dir="libs/" />
+        <source-file src="src/android/Parse-1.4.0.jar.properties" target-dir="libs/" />
+        <source-file src="src/android/third_party_licenses.txt" target-dir="libs/" />
     </platform>
 
 </plugin>
