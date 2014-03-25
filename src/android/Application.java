@@ -41,11 +41,11 @@ public class Application extends android.app.Application {
 		String MainActivityStr = (String) ai.metaData.get("MainActivity"); 
 		Class<? extends Activity> MainActivity = (Class<? extends Activity>) Class.forName(MainActivityStr); 
 		
-	  // Initialize the Parse SDK.
+	    // Initialize the Parse SDK.
 		Parse.initialize(this, appKey, appSecret); 
 		
-	// Specify an Activity to handle all pushes by default.
-		//PushService.setDefaultPushCallback(this, MainActivity);
+	    // Specify an Activity to handle all pushes by default.
+		PushService.setDefaultPushCallback(this, MainActivity);
 
 		// When users indicate they are Giants fans, we subscribe them to that channel.
 		PushService.subscribe(this, "test", MainActivity);
