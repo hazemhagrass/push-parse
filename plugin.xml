@@ -32,11 +32,18 @@
             </config-file>
 
             <config-file target="AndroidManifest.xml" parent="/manifest/application">
-               <meta-data android:name="ParseAppKey" android:value="ZqVNdVlEV3vKsdr74NoNuk5laThTfTNRR80tNhlr" />
-               <meta-data android:name="ParseClientKey" android:value="HoE91L5tV5duGy4sHWAXybln27POfb3X4f3bExhA" />
-               <meta-data android:name="MainActivity" android:value="com.example.hello.HelloWorld" />
-               <service android:name="com.parse.PushService" />
-               <receiver android:name="com.parse.ParseBroadcastReceiver">
+             <meta-data android:name="ParseAppKey" android:value="ZqVNdVlEV3vKsdr74NoNuk5laThTfTNRR80tNhlr" />
+             <meta-data android:name="ParseClientKey" android:value="HoE91L5tV5duGy4sHWAXybln27POfb3X4f3bExhA" />
+             <meta-data android:name="MainActivity" android:value="$PACKAGE_NAME.HelloWorld" />
+             <meta-data android:name="FromNotification" android:value="$PACKAGE_NAME.FromNotification" />
+             <activity
+                android:name="FromNotification"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+                android:label="@string/app_name"
+                android:theme="@android:style/Theme.Black.NoTitleBar" >
+            </activity>
+            <service android:name="com.parse.PushService" />
+            <receiver android:name="com.parse.ParseBroadcastReceiver">
                 <intent-filter>
                     <action android:name="android.intent.action.BOOT_COMPLETED" />
                     <action android:name="android.intent.action.USER_PRESENT" />
