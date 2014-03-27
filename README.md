@@ -1,7 +1,58 @@
-push-parse
-==========
+push-parse plugin for Cordova / PhoneGap
+======================================================
 
-Push notification plugin using parse for Phonegap
+
+This Plugin add push notification to Phonegap app using parse push-notification service
+must have an application on [Parse](https://parse.com/)
+
+## Usage
+
+Example Usage: 
+
+```js
+var channel = "test";
+var message = "message";
+var fileContent = "<html>Phonegap Print Plugin</html>";
+window.plugins.PushParse.sendPush(function(){console.log('success')},function(){console.log('fail')},'message','test');
+```
+
+Check if app open from user or from notification callback
+
+```js
+if (window.location.search.substring(1))
+   console.log(window.location.search.substring(1))
+```
+
+## Installation
+
+#### Automatic Installation using PhoneGap/Cordova CLI (iOS and Android)
+1. Install this plugin using PhoneGap/Cordova cli:
+```
+cordova plugin add
+``` 
+
+
+2. Modify the platforms/android/AndroidManifest.xml directory to contain (replacing with your configuration settings):
+
+        <!-- parse app credentials -->
+        <meta-data android:name="ParseAppKey" android:value="YOUR_APP_ID" />
+        <meta-data android:name="ParseClientKey" android:value="YOUR_CLIENT_KEY" />
+        <!-- MainActivity Class -->
+        <meta-data android:name="MainActivity" android:value="YOUR_MainActivity" />
+        <!-- add this attribute to application -->
+        <application android:name="com.badrit.PushParse.Application" android:allowBackup="true" >
+3. Replace onCreate method in Main Activity with this:
+        Bundle bundle = getIntent().getExtras();
+		String string = "";
+		if (getIntent() != null && getIntent().getExtras() != null)
+			if (bundle.getBoolean("fromNotification") == true)
+				string = "?fromNotification";
+		super.onCreate(savedInstanceState);
+		super.init();
+		super.loadUrl(Config.getStartUrl() + string);
+4. copy FromNotification.java from src/android to Main Package.
+
+
 
 ## MIT Licence
 
