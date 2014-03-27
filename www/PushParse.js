@@ -2,15 +2,19 @@
 
 function PushParse() {}
 
-cordova.addConstructor(function () {
-    if (!window.plugins) {
-        window.plugins = {};
-    }
+PushParse.prototype.sendPush = function(success, failure, message, channel) {
+	cordova.exec(success, failure, "PushParse", "sendPush", [message, channel]);
+};
 
-    // shim to work in 1.5 and 1.6
-    if (!window.Cordova) {
-        window.Cordova = cordova;
-    };
+cordova.addConstructor(function() {
+	if (!window.plugins) {
+		window.plugins = {};
+	}
 
-    window.plugins.PushParse = new PushParse();
+	// shim to work in 1.5 and 1.6
+	if (!window.Cordova) {
+		window.Cordova = cordova;
+	};
+
+	window.plugins.PushParse = new PushParse();
 });
