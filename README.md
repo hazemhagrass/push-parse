@@ -16,6 +16,13 @@ var fileContent = "<html>Phonegap Print Plugin</html>";
 window.plugins.PushParse.sendPush(function(){console.log('success')},function(){console.log('fail')},'message','test');
 ```
 
+Check if app open from user or from notification callback
+
+```js
+if (window.location.search.substring(1))
+   console.log(window.location.search.substring(1))
+```
+
 ## Installation
 
 #### Automatic Installation using PhoneGap/Cordova CLI (iOS and Android)
