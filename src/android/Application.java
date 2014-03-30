@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -38,16 +39,16 @@ public class Application extends android.app.Application {
 		
 		String appKey = (String) ai.metaData.get("ParseAppKey");
 		String appSecret = (String) ai.metaData.get("ParseClientKey");  
-		String MainActivityStr = (String) ai.metaData.get("MainActivity"); 
-		Class<? extends Activity> MainActivity = (Class<? extends Activity>) Class.forName(MainActivityStr); 
+		String FromNotificationStr = (String) ai.metaData.get("FromNotification"); 
+		Class<? extends Activity> FromNotification = (Class<? extends Activity>) Class.forName(FromNotificationStr); 
 		
 	    // Initialize the Parse SDK.
 		Parse.initialize(this, appKey, appSecret); 
 		
 	    // Specify an Activity to handle all pushes by default.
-		PushService.setDefaultPushCallback(this, MainActivity);
+		PushService.setDefaultPushCallback(this, FromNotification);
 
 		// When users indicate they are Giants fans, we subscribe them to that channel.
-		PushService.subscribe(this, "test", MainActivity);
+		PushService.subscribe(this, "test", FromNotification);
 	}
 }
