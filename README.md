@@ -42,6 +42,7 @@ cordova plugin add
         <!-- add this attribute to application -->
         <application android:name="com.badrit.PushParse.Application" android:allowBackup="true" >
 3. Replace onCreate method in Main Activity with this:
+```
         Bundle bundle = getIntent().getExtras();
 		String string = "";
 		if (getIntent() != null && getIntent().getExtras() != null)
@@ -50,6 +51,7 @@ cordova plugin add
 		super.onCreate(savedInstanceState);
 		super.init();
 		super.loadUrl(Config.getStartUrl() + string);
+```
 4. copy FromNotification.java from src/android to Main Package.
 
 
