@@ -32,9 +32,9 @@
             </config-file>
 
             <config-file target="AndroidManifest.xml" parent="/manifest/application">
-             <meta-data android:name="ParseAppKey" android:value="ZqVNdVlEV3vKsdr74NoNuk5laThTfTNRR80tNhlr" />
-             <meta-data android:name="ParseClientKey" android:value="HoE91L5tV5duGy4sHWAXybln27POfb3X4f3bExhA" />
-             <meta-data android:name="MainActivity" android:value="$PACKAGE_NAME.HelloWorld" />
+             <meta-data android:name="ParseAppKey" android:value="YOUR_APP_ID" />
+             <meta-data android:name="ParseClientKey" android:value="YOUR_CLIENT_KEY" />
+             <meta-data android:name="MainActivity" android:value="YOUR_MainActivity" />
              <meta-data android:name="FromNotification" android:value="$PACKAGE_NAME.FromNotification" />
              <activity
                 android:name="FromNotification"
