@@ -28,7 +28,7 @@ if (window.location.search.substring(1))
 #### Automatic Installation using PhoneGap/Cordova CLI (iOS and Android)
 1. Install this plugin using PhoneGap/Cordova cli:
 ```
-cordova plugin add
+cordova plugin add https://github.com/hazemhagrass/push-parse.git
 ``` 
 
 
