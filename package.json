@@ -1,0 +1,22 @@
+{
+  "name": "com-badrit-pushparse",
+  "version": "0.2.0",
+  "description": "Cordova PushParse Plugin",
+  "cordova": {
+    "id": "com-badrit-pushparse",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hazemhagrass/push-parse"
+  },
+  "keywords": [
+    "cordova",
+    "pushparse",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT"
+}

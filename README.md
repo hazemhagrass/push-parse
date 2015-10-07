@@ -28,7 +28,13 @@ if (window.location.search.substring(1))
 #### Automatic Installation using PhoneGap/Cordova CLI (iOS and Android)
 1. Install this plugin using PhoneGap/Cordova cli:
 ```
+for Cordova >= 3.0.0
+
 cordova plugin add https://github.com/hazemhagrass/push-parse.git
+```
+for Cordova >= 5.0.0
+
+cordova plugin add com-badrit-contactpicker
 ``` 
 
 
